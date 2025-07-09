@@ -1,67 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
-const featuredImages = [
-  "/s70XtDhoKyVlfvkbNMi5eOkg.jpg",
-  "/zu3Hb6lI05zSAtIkaV6PRC3l1w4.jpg",
-  "/cYioLBZFZi0fz8w81ATqb7zD90.jpg",
-  "/t8w4WKE99KSbFYOSg2pL630oQ.jpg",
-  "/tjVjllXXrazr8a4bbHqYD5l8Hw.jpg",
-];
 
 export default function Home() {
-  // Simple auto-advancing carousel
-  const [current, setCurrent] = useState(0);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % featuredImages.length);
-    }, 3500);
-    return () => clearTimeout(timeoutRef.current!);
-  }, [current]);
-
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden">
       {/* Hero Section */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={featuredImages[current]}
+          src="/s70XtDhoKyVlfvkbNMi5eOkg.jpg"
           alt="Featured background"
           fill
-          className="object-cover w-full h-full opacity-60 scale-105 transition-all duration-1000"
+          className="object-cover w-full h-full opacity-60"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
       </div>
       <header className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] w-full text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4 opacity-0 animate-[fadeInUp_1.2s_ease_forwards]">Maysoon Media</h1>
-        <p className="text-2xl md:text-3xl text-gray-200 italic mb-8 opacity-0 animate-[fadeIn_1.2s_ease_0.2s_forwards]">media that moves you</p>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4">Maysoon Media</h1>
+        <p className="text-2xl md:text-3xl text-gray-200 italic mb-8">media that moves you</p>
       </header>
-      {/* Carousel Section */}
+      {/* Featured Image Section */}
       <section className="relative z-10 w-full max-w-3xl mt-8 flex flex-col items-center">
         <div className="relative w-full h-72 md:h-96 rounded-xl overflow-hidden shadow-2xl border-4 border-white/10">
-          {featuredImages.map((img, idx) => (
-            <Image
-              key={img}
-              src={img}
-              alt={`Featured ${idx + 1}`}
-              fill
-              className={`object-cover w-full h-full absolute transition-opacity duration-1000 ${current === idx ? 'opacity-100' : 'opacity-0'}`}
-              priority={idx === 0}
-            />
-          ))}
-        </div>
-        <div className="flex gap-2 mt-4">
-          {featuredImages.map((_, idx) => (
-            <button
-              key={idx}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${current === idx ? 'bg-white' : 'bg-white/40'}`}
-              onClick={() => setCurrent(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
+          <Image
+            src="/zu3Hb6lI05zSAtIkaV6PRC3l1w4.jpg"
+            alt="Featured work"
+            fill
+            className="object-cover w-full h-full"
+            priority
+          />
         </div>
       </section>
       <footer className="relative z-10 mt-24 text-center text-gray-400 text-sm pb-8">
