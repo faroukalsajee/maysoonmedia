@@ -36,8 +36,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
       </div>
       <header className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] w-full text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4 animate-slide-up">Maysoon Media</h1>
-        <p className="text-2xl md:text-3xl text-gray-200 italic mb-8 animate-fade-in delay-200">media that moves you</p>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4 opacity-0 animate-[fadeInUp_1.2s_ease_forwards]">Maysoon Media</h1>
+        <p className="text-2xl md:text-3xl text-gray-200 italic mb-8 opacity-0 animate-[fadeIn_1.2s_ease_0.2s_forwards]">media that moves you</p>
       </header>
       {/* Carousel Section */}
       <section className="relative z-10 w-full max-w-3xl mt-8 flex flex-col items-center">
@@ -68,20 +68,6 @@ export default function Home() {
         &copy; {new Date().getFullYear()} Maysoon Media. All rights reserved. <br />
         Maysoon Media is now <a href="https://rhythmi.ai" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">rhythmi.ai</a>
       </footer>
-      {/* Animations */}
-      <style jsx global>{`
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes slide-up {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in { animation: fade-in 1.2s ease both; }
-        .animate-slide-up { animation: slide-up 1.2s cubic-bezier(.4,0,.2,1) both; }
-        .delay-200 { animation-delay: 0.2s; }
-      `}</style>
     </div>
   );
 }
