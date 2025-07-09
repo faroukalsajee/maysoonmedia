@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav className="w-full flex items-center justify-center py-6 bg-white/80 backdrop-blur border-b border-gray-200 mb-8 sticky top-0 z-50">
+        <nav className="w-full flex items-center justify-between py-6 px-8 bg-white/80 backdrop-blur border-b border-gray-200 mb-8 sticky top-0 z-50">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image src="/Logo.svg" alt="Maysoon Media Logo" width={60} height={60} className="cursor-pointer hover:opacity-80 transition-opacity" />
+            </Link>
+          </div>
           <div className="flex gap-8 text-lg font-medium text-gray-800">
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
             <Link href="/about" className="hover:text-blue-600 transition-colors">About</Link>

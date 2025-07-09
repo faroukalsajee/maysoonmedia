@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BackgroundImage from "../components/BackgroundImage";
 
 const socialLinks = [
     {
@@ -45,47 +46,49 @@ const socialLinks = [
     }
 ];
 
-export default function Socials() {
+export default function SocialsPage() {
     return (
-        <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4 py-12">
-            <header className="flex flex-col items-center mb-8">
-                <Image src="/Logo.svg" alt="Maysoon Media Logo" width={80} height={80} className="mb-4" />
-                <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-2">Connect With Us</h1>
-                <p className="text-lg text-gray-300 text-center">Follow Maysoon Media across all platforms</p>
-            </header>
+        <div className="relative min-h-screen flex flex-col items-center justify-center py-16 px-4">
+            <BackgroundImage src="/yIvUCAYXSKUtNaHkTCwcw6NtKI.jpg" alt="Socials Background" />
+            <main className="relative z-10 max-w-2xl text-center text-white">
+                <header className="flex flex-col items-center mb-8">
+                    <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-2">Connect With Us</h1>
+                    <p className="text-lg text-gray-300 text-center">Follow Maysoon Media across all platforms</p>
+                </header>
 
-            <section className="w-full max-w-2xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {socialLinks.map((social) => (
+                <section className="w-full max-w-2xl">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {socialLinks.map((social) => (
+                            <a
+                                key={social.name}
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${social.color} p-6 rounded-xl text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group`}
+                            >
+                                <div className="flex items-center space-x-4">
+                                    <div className="group-hover:scale-110 transition-transform duration-300">
+                                        {social.icon}
+                                    </div>
+                                    <span className="text-lg font-semibold">{social.name}</span>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+
+                    <div className="mt-12 text-center">
+                        <p className="text-gray-400 mb-4">Stay updated with our latest content and announcements</p>
                         <a
-                            key={social.name}
-                            href={social.url}
+                            href="https://rhythmi.ai"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${social.color} p-6 rounded-xl text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group`}
+                            className="inline-flex items-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors"
                         >
-                            <div className="flex items-center space-x-4">
-                                <div className="group-hover:scale-110 transition-transform duration-300">
-                                    {social.icon}
-                                </div>
-                                <span className="text-lg font-semibold">{social.name}</span>
-                            </div>
+                            Maysoon Media is now rhythmi.ai
                         </a>
-                    ))}
-                </div>
-
-                <div className="mt-12 text-center">
-                    <p className="text-gray-400 mb-4">Stay updated with our latest content and announcements</p>
-                    <a
-                        href="https://rhythmi.ai"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors"
-                    >
-                        Maysoon Media is now rhythmi.ai
-                    </a>
-                </div>
-            </section>
+                    </div>
+                </section>
+            </main>
         </div>
     );
 } 
