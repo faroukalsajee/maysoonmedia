@@ -30,7 +30,7 @@ export default function Music() {
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 mb-8">
                     <h3 className="text-xl font-semibold mb-4 text-white">About Maysoon Music</h3>
                     <p className="text-gray-300 mb-4">
-                        Discover the latest music productions, artist collaborations, and behind-the-scenes content from Maysoon Media's music division.
+                        Discover the latest music productions, artist collaborations, and behind-the-scenes content from Maysoon Media&apos;s music division.
                     </p>
                     <a
                         href="https://www.youtube.com/c/MaysoonMusic"
