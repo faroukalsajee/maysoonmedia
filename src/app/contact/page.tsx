@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import BackgroundImage from "../components/BackgroundImage";
 
 export default function ContactPage() {
